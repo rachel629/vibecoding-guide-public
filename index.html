@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Coding for Beginners | aiEDU</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1a1f3c;
+      --navy-mid:    #252a50;
+      --navy-light:  #2d3461;
+      --teal:        #18DCDC;
+      --teal-dark:   #006464;
+      --teal-light:  #DBFBFB;
+      --teal-pale:   #edfcfc;
+      --orange:      #F5501C;
+      --orange-light:#fff3ed;
+      --pink:        #F25BB6;
+      --lime:        #D8FF00;
+      --mint:        #C0FCDC;
+      --white:       #ffffff;
+      --gray-100:    #f7f8fc;
+      --gray-200:    #eef0f7;
+      --gray-300:    #d1d5e0;
+      --gray-600:    #4b5570;
+      --text:        #1a1f3c;
+      --radius:      16px;
+      --radius-sm:   10px;
+      --shadow-sm:   0 2px 12px rgba(26,31,60,0.08);
+      --shadow:      0 4px 24px rgba(26,31,60,0.12);
+      --shadow-lg:   0 8px 40px rgba(26,31,60,0.20);
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background-color: var(--gray-100);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='100'%3E%3Cpolygon points='18,6 36,6 45,21 36,36 18,36 9,21' fill='none' stroke='%231a1f3c' stroke-width='1.2' opacity='0.07'/%3E%3Ccircle cx='40' cy='11' r='7' fill='none' stroke='%231a1f3c' stroke-width='1.2' opacity='0.07'/%3E%3Cpolyline points='52,16 66,21 52,26' fill='none' stroke='%231a1f3c' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.07'/%3E%3Cline x1='76' y1='7' x2='94' y2='26' stroke='%231a1f3c' stroke-width='1.2' opacity='0.07' stroke-linecap='round'/%3E%3Cline x1='94' y1='7' x2='76' y2='26' stroke='%231a1f3c' stroke-width='1.2' opacity='0.07' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='70' r='12' fill='none' stroke='%231a1f3c' stroke-width='1.2' opacity='0.06'/%3E%3Cpolygon points='62,55 82,55 92,70 82,85 62,85 52,70' fill='none' stroke='%231a1f3c' stroke-width='1.2' opacity='0.06'/%3E%3Cpolyline points='100,64 114,70 100,76' fill='none' stroke='%231a1f3c' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.06'/%3E%3C/svg%3E");
+      background-size: 120px 100px;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    header img.logo { height: 36px; object-fit: contain; }
+    .logo-text {
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+    .header-badge {
+      background: rgba(24,220,220,0.18);
+      color: var(--teal);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 99px;
+      border: 1px solid rgba(24,220,220,0.3);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy-light) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='100'%3E%3Cpolygon points='18,6 36,6 45,21 36,36 18,36 9,21' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12'/%3E%3Ccircle cx='40' cy='11' r='7' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12'/%3E%3Cpolyline points='52,16 66,21 52,26' fill='none' stroke='%2318DCDC' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.12'/%3E%3Cline x1='76' y1='7' x2='94' y2='26' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12' stroke-linecap='round'/%3E%3Cline x1='94' y1='7' x2='76' y2='26' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='70' r='12' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.1'/%3E%3Cpolygon points='62,55 82,55 92,70 82,85 62,85 52,70' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.1'/%3E%3Cpolyline points='100,64 114,70 100,76' fill='none' stroke='%2318DCDC' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.1'/%3E%3C/svg%3E");
+      background-size: 120px 100px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 70px;
+      background: var(--gray-100);
+      clip-path: ellipse(55% 100% at 50% 100%);
+      z-index: 2;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 6rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text { flex: 1; min-width: 0; }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(24,220,220,0.15);
+      border: 1px solid rgba(24,220,220,0.35);
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.1rem;
+      color: white;
+    }
+
+    .hero h1 .accent { color: var(--teal); }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 0.6rem;
+    }
+    .hero .tools-line {
+      font-size: 0.84rem;
+      color: rgba(24,220,220,0.75);
+      letter-spacing: 0.04em;
+      margin-bottom: 2rem;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 1rem;
+      font-weight: 800;
+      padding: 0.9rem 2.2rem;
+      border-radius: 99px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(24,220,220,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(24,220,220,0.55); }
+
+    .hero-image {
+      flex: 0 0 420px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 440px;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-14px); }
+    }
+
+    /* ── SHARED ── */
+    .section-wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-wrap.narrow { max-width: 760px; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 0.45rem;
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.55rem;
+    }
+    .section-sub { font-size: 0.97rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 1.75rem; }
+
+    /* ── VIBE EXPLAINER ── */
+    .vibe-explainer {
+      background: var(--teal-pale);
+      border: 2px solid rgba(24,220,220,0.25);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .vibe-explainer .big-emoji { font-size: 2.8rem; line-height: 1; flex-shrink: 0; }
+    .vibe-explainer h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--teal-dark); }
+    .vibe-explainer p { font-size: 0.94rem; color: var(--gray-600); line-height: 1.7; }
+    .vibe-explainer p + p { margin-top: 0.5rem; font-style: italic; }
+
+    /* ── WHO IT'S FOR ── */
+    .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
+    .who-chip {
+      background: white;
+      border: 2px solid var(--teal-light);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .who-chip:hover { border-color: var(--teal); box-shadow: var(--shadow); transform: translateY(-2px); }
+    .who-chip .chip-emoji { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .who-chip p { font-size: 0.88rem; font-weight: 500; line-height: 1.45; }
+
+    /* ── TOOLKIT ── */
+    .tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .tool-card {
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem 1.5rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 110px; height: 110px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+    }
+    .tool-card:hover { transform: translateY(-5px); }
+    .tool-card.claude { background: linear-gradient(135deg, var(--teal-dark) 0%, #009999 100%); box-shadow: 0 4px 24px rgba(0,100,100,0.32); }
+    .tool-card.vscode { background: linear-gradient(135deg, #0065a9, #007acc); box-shadow: 0 4px 24px rgba(0,101,169,0.32); }
+    .tool-card.github { background: linear-gradient(135deg, #c73d0e, var(--orange)); box-shadow: 0 4px 24px rgba(245,80,28,0.32); }
+    .tool-card.vercel { background: linear-gradient(135deg, #c4358a, var(--pink)); box-shadow: 0 4px 24px rgba(242,91,182,0.32); }
+    .tool-card.supabase { background: linear-gradient(135deg, #1a6b3e, #3ECF8E); box-shadow: 0 4px 24px rgba(62,207,142,0.32); }
+    .tool-grid .tool-wide { grid-column: 1 / -1; }
+    .tool-emoji { font-size: 2rem; display: block; margin-bottom: 0.8rem; }
+    .tool-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.2rem; }
+    .tool-tagline { font-size: 0.78rem; opacity: 0.7; font-style: italic; margin-bottom: 0.8rem; }
+    .tool-desc { font-size: 0.85rem; opacity: 0.88; line-height: 1.55; margin-bottom: 0.9rem; }
+    .think-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.55; margin-bottom: 0.2rem; }
+    .think-text { font-size: 0.83rem; opacity: 0.85; font-style: italic; margin-bottom: 1rem; }
+    .tool-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.28);
+      color: white;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .tool-link:hover { background: rgba(255,255,255,0.32); }
+
+    /* ── PIPELINE ── */
+    .pipeline-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .pipe-box {
+      background: white;
+      border: 2px solid var(--teal-light);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+    .pipe-box:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .pipe-box:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--teal);
+      font-size: 1.1rem;
+      font-weight: 700;
+      z-index: 2;
+      background: var(--gray-100);
+      padding: 0 3px;
+    }
+    .pipe-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      color: var(--teal);
+      font-size: 0.85rem;
+      font-weight: 800;
+      border-radius: 50%;
+      margin-bottom: 0.55rem;
+    }
+    .pipe-label { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .pipe-sub   { font-size: 0.74rem; color: var(--gray-600); }
+
+    /* ── STEPS SECTION ── */
+    .steps-outer { max-width: 760px; margin: 0 auto; padding: 1rem 2rem 5rem; }
+    .steps-header { text-align: center; margin-bottom: 2.5rem; }
+
+    .dot-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 1.75rem 0 1rem;
+      overflow-x: auto;
+      padding: 4px 0;
+    }
+    .s-dot {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 3px solid var(--gray-300);
+      background: white;
+      color: var(--gray-600);
+      font-size: 0.82rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.25s;
+    }
+    .s-dot.active {
+      border-color: var(--teal);
+      background: var(--teal);
+      color: var(--navy);
+      box-shadow: 0 0 0 4px rgba(24,220,220,0.22);
+    }
+    .s-dot.done {
+      border-color: var(--teal-dark);
+      background: var(--teal-dark);
+      color: white;
+    }
+    .s-line { flex: 1; min-width: 16px; height: 3px; background: var(--gray-300); transition: background 0.3s; }
+    .s-line.done { background: var(--teal-dark); }
+
+    .overall-bar { background: var(--gray-200); border-radius: 99px; height: 8px; overflow: hidden; }
+    .overall-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    .prog-label { font-size: 0.8rem; color: var(--gray-600); text-align: right; margin-top: 0.35rem; margin-bottom: 1.75rem; font-weight: 500; }
+
+    /* ── STEP CARD ── */
+    .step-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .step-card-head {
+      background: var(--navy);
+      padding: 2rem 2rem 1.75rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .step-card-head::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='100'%3E%3Cpolygon points='18,6 36,6 45,21 36,36 18,36 9,21' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12'/%3E%3Ccircle cx='40' cy='11' r='7' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12'/%3E%3Cpolyline points='52,16 66,21 52,26' fill='none' stroke='%2318DCDC' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.12'/%3E%3Cline x1='76' y1='7' x2='94' y2='26' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12' stroke-linecap='round'/%3E%3Cline x1='94' y1='7' x2='76' y2='26' stroke='%2318DCDC' stroke-width='1.2' opacity='0.12' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-size: 120px 100px;
+      pointer-events: none;
+    }
+    .step-card-head > * { position: relative; z-index: 1; }
+    .step-card-head::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: var(--teal);
+    }
+    .step-badge { font-size: 0.73rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem; }
+    .step-card-head h2 { font-family: 'Poppins', sans-serif; font-size: 1.65rem; font-weight: 800; letter-spacing: -0.015em; }
+    .step-card-body { padding: 2rem; }
+    .step-intro { font-size: 0.97rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 1.5rem; }
+
+    /* ── CHECKLIST ── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .c-box {
+      width: 24px; height: 24px; min-width: 24px;
+      border: 2.5px solid var(--gray-300);
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s;
+      margin-top: 2px;
+      background: white;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--navy);
+      user-select: none;
+    }
+    .c-box:hover { border-color: var(--teal); }
+    .c-box.checked { background: var(--teal); border-color: var(--teal); }
+    .c-label { font-size: 0.93rem; font-weight: 500; line-height: 1.5; cursor: pointer; transition: color 0.18s; }
+    .c-label.checked { color: var(--gray-600); text-decoration: line-through; }
+
+    /* ── CALLOUTS ── */
+    .callout {
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 1rem 1.25rem;
+      margin-top: 1.5rem;
+      border-left-width: 4px;
+      border-left-style: solid;
+    }
+    .callout.pink   { background: #edfcfc; border-left-color: var(--teal); }
+    .callout.yellow { background: #fffbeb; border-left-color: var(--orange); }
+    .callout.green  { background: #f0fdf4; border-left-color: #22c55e; }
+    .callout strong { display: block; font-size: 0.83rem; font-weight: 800; margin-bottom: 0.35rem; }
+    .callout.pink   strong { color: var(--teal-dark); }
+    .callout.yellow strong { color: #b45309; }
+    .callout.green  strong { color: #15803d; }
+    .callout p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; }
+
+    /* ── PROMPT BLOCK ── */
+    .prompt-block {
+      background: var(--navy);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .prompt-block .pb-label { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+    .prompt-item { font-family: 'Courier New', monospace; font-size: 0.84rem; color: #e8fffe; padding: 0.45rem 0; border-bottom: 1px solid rgba(24,220,220,0.1); line-height: 1.5; }
+    .prompt-item:last-child { border-bottom: none; }
+
+    /* ── STEP NAV ── */
+    .step-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 1.75rem; gap: 1rem; }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: 99px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .nav-btn.prev { background: var(--gray-100); color: var(--text); border: 2px solid var(--gray-300); }
+    .nav-btn.prev:hover:not(:disabled) { background: var(--gray-200); }
+    .nav-btn.prev:disabled { opacity: 0.4; cursor: not-allowed; }
+    .nav-btn.next { background: var(--navy); color: var(--teal); box-shadow: 0 4px 16px rgba(26,31,60,0.3); }
+    .nav-btn.next:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(26,31,60,0.4); }
+    .nav-btn.finish { background: linear-gradient(135deg, var(--orange), #d43e10); color: white; box-shadow: 0 4px 16px rgba(245,80,28,0.35); }
+    .step-count { font-size: 0.84rem; color: var(--gray-600); font-weight: 600; }
+
+    /* ── DONE BANNER ── */
+    .done-banner {
+      display: none;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--teal-dark) 100%);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: var(--radius);
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .done-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='100'%3E%3Cpolygon points='18,6 36,6 45,21 36,36 18,36 9,21' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.18'/%3E%3Ccircle cx='40' cy='11' r='7' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.18'/%3E%3C/svg%3E");
+      background-size: 120px 100px;
+      pointer-events: none;
+    }
+    .done-banner > * { position: relative; z-index: 1; }
+    .done-banner.show { display: block; animation: popIn 0.4s ease; }
+    @keyframes popIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+    .done-banner h2 { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem; color: var(--teal); }
+    .done-banner p  { font-size: 1rem; opacity: 0.88; }
+
+    /* ── TIPS ── */
+    .tip-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    .tip-item {
+      background: white;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tip-item:hover { border-color: var(--teal-light); box-shadow: var(--shadow-sm); }
+    .tip-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+    }
+    .tip-icon  { font-size: 1.35rem; flex-shrink: 0; }
+    .tip-title { flex: 1; font-size: 0.97rem; font-weight: 700; color: var(--text); }
+    .tip-chev  { font-size: 0.95rem; color: var(--gray-600); transition: transform 0.25s; }
+    .tip-item.open .tip-chev { transform: rotate(180deg); }
+    .tip-body  { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .tip-item.open .tip-body { max-height: 600px; }
+    .tip-body-inner { padding: 0 1.5rem 1.5rem; }
+    .tip-body-inner p { font-size: 0.91rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 0.75rem; }
+    .tip-body-inner ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .tip-body-inner li {
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: var(--text);
+      background: var(--gray-100);
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--teal);
+      line-height: 1.5;
+    }
+
+    /* ── QUICK REFERENCE ── */
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-top: 1.5rem;
+    }
+    .ref-table th {
+      background: var(--navy);
+      color: var(--teal);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.9rem 1.25rem;
+      text-align: left;
+    }
+    .ref-table td { padding: 1rem 1.25rem; font-size: 0.91rem; border-bottom: 1px solid var(--gray-200); vertical-align: middle; }
+    .ref-table tr:last-child td { border-bottom: none; }
+    .ref-table tr:hover td { background: var(--teal-pale); }
+    .ref-link { color: var(--teal-dark); font-weight: 600; text-decoration: none; }
+    .ref-link:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.83rem;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='100'%3E%3Cpolygon points='18,6 36,6 45,21 36,36 18,36 9,21' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.08'/%3E%3Ccircle cx='40' cy='11' r='7' fill='none' stroke='%2318DCDC' stroke-width='1.2' opacity='0.08'/%3E%3C/svg%3E");
+      background-size: 120px 100px;
+      pointer-events: none;
+    }
+    footer > * { position: relative; z-index: 1; }
+    footer img { height: 34px; display: block; margin: 0 auto 0.75rem; opacity: 0.9; }
+    footer a { color: var(--teal); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── CONFETTI ── */
+    #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+
+    /* ── FADE IN ── */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s, transform 0.55s; }
+    .fade-in.vis { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .hero-inner { flex-direction: column; text-align: center; padding: 3rem 2rem 6rem; }
+      .hero-text .hero-tag { margin-left: auto; margin-right: auto; }
+      .hero .sub { max-width: 100%; margin: 0 auto 0.6rem; }
+      .hero-image { flex: none; width: 100%; display: flex; justify-content: center; }
+      .hero-image img { max-width: 320px; }
+      .hero-cta { margin: 0 auto; }
+    }
+    @media (max-width: 620px) {
+      .step-card-head { padding: 1.5rem; }
+      .step-card-body { padding: 1.5rem; }
+      .pipeline-row { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .pipe-box:not(:last-child)::after { display: none; }
+    }
+    @media (max-width: 420px) {
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo-wrap" href="https://aiedu.org" target="_blank" rel="noopener">
+    <img class="logo"
+      src="https://images.squarespace-cdn.com/content/v1/63ebe79f606efb032dd05a5b/3de9046d-f273-4ffd-b39d-43fb0bf2f93f/AI+Edu+Logo+%282%29.png"
+      alt="aiEDU logo" />
+    <span class="logo-text">aiEDU</span>
+  </a>
+  <span class="header-badge">Beginner Guide</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-tag">✨ Zero coding experience needed</span>
+      <h1>Vibe Coding<br>for <span class="accent">Beginners</span></h1>
+      <p class="sub">Build real websites and apps by describing what you want in plain English. No programming background required.</p>
+      <p class="tools-line">Using Claude Code &nbsp;•&nbsp; VS Code &nbsp;•&nbsp; GitHub &nbsp;•&nbsp; Vercel &nbsp;•&nbsp; Supabase</p>
+      <a href="#steps" class="hero-cta">Start Building &rarr;</a>
+    </div>
+    <div class="hero-image">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/63ebe79f606efb032dd05a5b/f0034ffa-b19f-4d72-990f-62dc1e369472/aiEDU_Illustration_Globe.png"
+        alt="AI world illustration"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS VIBE CODING -->
+<div class="section-wrap fade-in">
+  <div class="section-label">The big idea</div>
+  <div class="vibe-explainer">
+    <div class="big-emoji">🤔</div>
+    <div>
+      <h3>What is vibe coding?</h3>
+      <p>Vibe coding is a new way of building software where you describe what you want in plain English, and an AI assistant writes the actual code for you. You don't need to memorize programming languages, syntax rules, or technical jargon — just explain what you're trying to build.</p>
+      <p style="margin-top:0.6rem;">Think of it like this: instead of learning to drive a race car, you tell a world-class driver exactly where you want to go. The AI handles the technical driving — you handle the vision and direction.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<div class="section-wrap fade-in" style="padding-top:0;">
+  <div class="section-label">Who this is for</div>
+  <div class="section-title">This guide is for you if...</div>
+  <div class="who-grid">
+    <div class="who-chip"><span class="chip-emoji">🌱</span><p>You've never written a line of code before — and that's totally fine</p></div>
+    <div class="who-chip"><span class="chip-emoji">💡</span><p>You have an idea for a website, tool, or project and want to build it</p></div>
+    <div class="who-chip"><span class="chip-emoji">🎲</span><p>You're willing to experiment, make mistakes, and learn as you go</p></div>
+    <div class="who-chip"><span class="chip-emoji">🔍</span><p>You want to understand what each tool does before you dive in</p></div>
+  </div>
+</div>
+
+<!-- TOOLKIT -->
+<div class="section-wrap fade-in">
+  <div class="section-label">Your toolkit</div>
+  <div class="section-title">The tools you need</div>
+  <p class="section-sub">These free tools work together to take your idea from a blank screen to a real, live website. Add Supabase when your project needs to store data.</p>
+  <div class="tool-grid">
+    <div class="tool-card claude">
+      <span class="tool-emoji">🤖</span>
+      <h3>Claude Code</h3>
+      <div class="tool-tagline">Your AI coding partner</div>
+      <div class="tool-desc">Lives right inside VS Code. Type what you want in plain English and it writes the code, edits your files, and explains everything — no terminal needed.</div>
+      <div class="think-label">Think of it as</div>
+      <div class="think-text">A chat window where you describe what to build and it builds it</div>
+      <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-link">Get it &rarr;</a>
+    </div>
+    <div class="tool-card vscode">
+      <span class="tool-emoji">💻</span>
+      <h3>VS Code</h3>
+      <div class="tool-tagline">Your home base</div>
+      <div class="tool-desc">A free app from Microsoft. Your files on the left, code in the center, Claude Code chat on the right. Everything in one window — this is where you'll live.</div>
+      <div class="think-label">Think of it as</div>
+      <div class="think-text">The one app you have open the whole time</div>
+      <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="tool-link">Get it free &rarr;</a>
+    </div>
+    <div class="tool-card github">
+      <span class="tool-emoji">🐙</span>
+      <h3>GitHub</h3>
+      <div class="tool-tagline">Your backup & history</div>
+      <div class="tool-desc">Saves every version of your project online. If something breaks, you can always roll back. Used by everyone from solo hobbyists to major tech companies.</div>
+      <div class="think-label">Think of it as</div>
+      <div class="think-text">A save point system — always there if you need to go back</div>
+      <a href="https://github.com" target="_blank" rel="noopener" class="tool-link">Sign up free &rarr;</a>
+    </div>
+    <div class="tool-card vercel">
+      <span class="tool-emoji">▲</span>
+      <h3>Vercel</h3>
+      <div class="tool-tagline">Your publisher</div>
+      <div class="tool-desc">Takes your code from GitHub and puts it live on the internet — automatically. Every time you save a change, your live site updates. No extra steps, ever.</div>
+      <div class="think-label">Think of it as</div>
+      <div class="think-text">The 'publish' button for the entire internet</div>
+      <a href="https://vercel.com" target="_blank" rel="noopener" class="tool-link">Sign up free &rarr;</a>
+    </div>
+    <div class="tool-card supabase tool-wide">
+      <span class="tool-emoji">🗄️</span>
+      <h3>Supabase</h3>
+      <div class="tool-tagline">Your database</div>
+      <div class="tool-desc">A free, open-source backend that gives your app a real database, user authentication, and file storage — all without writing server code. Perfect when your project needs to save and retrieve data.</div>
+      <div class="think-label">Think of it as</div>
+      <div class="think-text">A spreadsheet in the cloud that your app can read and write to</div>
+      <a href="https://supabase.com" target="_blank" rel="noopener" class="tool-link">Get it free &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- PIPELINE -->
+<div class="section-wrap fade-in" style="padding-top:0;">
+  <div class="section-label">How it works</div>
+  <div class="section-title">The Vibe Coding Pipeline</div>
+  <p class="section-sub">From your idea to a live website — all inside one window. You never have to leave VS Code.</p>
+  <div class="pipeline-row">
+    <div class="pipe-box">
+      <div class="pipe-num">1</div>
+      <div class="pipe-label">Open VS Code</div>
+      <div class="pipe-sub">Claude panel is ready</div>
+    </div>
+    <div class="pipe-box">
+      <div class="pipe-num">2</div>
+      <div class="pipe-label">Type what you want</div>
+      <div class="pipe-sub">Claude writes the code</div>
+    </div>
+    <div class="pipe-box">
+      <div class="pipe-num">3</div>
+      <div class="pipe-label">Save to GitHub</div>
+      <div class="pipe-sub">Work is backed up</div>
+    </div>
+    <div class="pipe-box">
+      <div class="pipe-num">4</div>
+      <div class="pipe-label">Vercel deploys</div>
+      <div class="pipe-sub">Site goes live! 🎉</div>
+    </div>
+  </div>
+</div>
+
+<!-- STEPS -->
+<section class="steps-outer" id="steps">
+  <div class="steps-header fade-in">
+    <div class="section-label">Let's do it</div>
+    <div class="section-title">Getting Started: Step by Step</div>
+    <p style="color:var(--gray-600);font-size:0.97rem;line-height:1.6;">Follow the steps in order. Check off each task as you go — you only need to set most of this up once!</p>
+  </div>
+
+  <div class="dot-track" id="dot-track"></div>
+
+  <div class="overall-bar"><div class="overall-fill" id="overall-fill"></div></div>
+  <div class="prog-label" id="prog-label">0 of 21 tasks complete</div>
+
+  <div class="step-card" id="step-card"></div>
+
+  <div class="step-nav">
+    <button class="nav-btn prev" id="prev-btn" onclick="changeStep(-1)" disabled>&larr; Back</button>
+    <span class="step-count" id="step-count">Step 1 of 7</span>
+    <button class="nav-btn next" id="next-btn" onclick="changeStep(1)">Next &rarr;</button>
+  </div>
+
+  <div class="done-banner" id="done-banner">
+    <h2>🎉 You're live on the internet!</h2>
+    <p>You just built a professional vibe coding workflow from scratch. Your site has a real URL. Keep building — you've got this.</p>
+  </div>
+</section>
+
+<!-- TIPS -->
+<div class="section-wrap fade-in">
+  <div class="section-label">Pro tips</div>
+  <div class="section-title">Get the Most Out of Vibe Coding</div>
+  <div class="tip-list" id="tip-list"></div>
+</div>
+
+<!-- QUICK REFERENCE -->
+<div class="section-wrap fade-in" style="padding-top:0;">
+  <div class="section-label">Bookmark this</div>
+  <div class="section-title">Quick Reference</div>
+  <table class="ref-table">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Where to Get It</th>
+        <th>What It Does</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🤖 Claude Code</strong></td>
+        <td>Search "Claude Code" in VS Code Extensions</td>
+        <td>AI chat inside VS Code — describe what to build</td>
+      </tr>
+      <tr>
+        <td><strong>💻 VS Code</strong></td>
+        <td><a href="https://code.visualstudio.com" class="ref-link" target="_blank" rel="noopener">code.visualstudio.com</a></td>
+        <td>Your main workspace — everything lives here</td>
+      </tr>
+      <tr>
+        <td><strong>🐙 GitHub</strong></td>
+        <td><a href="https://github.com" class="ref-link" target="_blank" rel="noopener">github.com</a></td>
+        <td>Back up and save your code with version history</td>
+      </tr>
+      <tr>
+        <td><strong>▲ Vercel</strong></td>
+        <td><a href="https://vercel.com" class="ref-link" target="_blank" rel="noopener">vercel.com</a></td>
+        <td>Publish your site live on the internet</td>
+      </tr>
+      <tr>
+        <td><strong>🗄️ Supabase</strong></td>
+        <td><a href="https://supabase.com" class="ref-link" target="_blank" rel="noopener">supabase.com</a></td>
+        <td>Database & backend — store and retrieve data from your app</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://images.squarespace-cdn.com/content/v1/63ebe79f606efb032dd05a5b/a155a944-afed-403b-a8f0-ee8c40c9699a/aiEDU_Logo_Full_White.png" alt="aiEDU" />
+  &copy; 2026 aiEDU &nbsp;|&nbsp;
+  <a href="https://www.aiedu.org" target="_blank" rel="noopener">aiedu.org</a>
+  &nbsp;|&nbsp;
+  Questions? Email <a href="mailto:rachel@aiedu.org">rachel@aiedu.org</a>
+</footer>
+
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+/* ── DATA ── */
+const STEPS = [
+  {
+    num: 1, emoji: '🔐', title: 'Create Your Free Accounts',
+    intro: 'Before anything else, sign up for the free tier of each platform. Takes about 10 minutes total — and you only do this once.',
+    tasks: [
+      { id:'s1a', html:'Sign up for GitHub at <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">github.com</a> with your email' },
+      { id:'s1b', html:'Sign up for Vercel at <a href="https://vercel.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">vercel.com</a> — use your GitHub account for the easiest signup' },
+      { id:'s1c', html:'Sign up for Claude at <a href="https://claude.ai" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">claude.ai</a> — you\'ll need this account to use Claude Code' },
+    ],
+    callout: { type:'yellow', icon:'💡', title:'Pro tip', body:'Use the same email address for all three accounts to keep things simple.' },
+  },
+  {
+    num: 2, emoji: '💻', title: 'Install VS Code',
+    intro: 'VS Code is your main workspace — everything else lives inside it. It\'s free, fast, and takes about two minutes to install.',
+    tasks: [
+      { id:'s2a', html:'Go to <a href="https://code.visualstudio.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">code.visualstudio.com</a> and download the version for your OS (Mac or Windows)' },
+      { id:'s2b', html:'Run the installer and open VS Code — a mostly empty screen is totally normal!' },
+      { id:'s2c', html:'Take a moment to find your bearings: file explorer on the left, code editor in the center' },
+    ],
+    callout: { type:'pink', icon:'✨', title:'Good to know', body:'VS Code is free, works on Mac, Windows, and Linux, and needs zero configuration right out of the box. This is the only app you need open while vibe coding.' },
+  },
+  {
+    num: 3, emoji: '🤖', title: 'Install the Claude Code Extension',
+    intro: 'Claude Code lives inside VS Code as a plugin — it adds a chat panel where you talk to the AI. Here\'s how to get it:',
+    tasks: [
+      { id:'s3a', html:'In VS Code, click the <strong>Extensions icon</strong> in the left sidebar (looks like four small squares)' },
+      { id:'s3b', html:'In the search bar, type: <strong>Claude Code</strong>' },
+      { id:'s3c', html:'Click the <strong>Claude Code extension by Anthropic</strong> and hit Install' },
+      { id:'s3d', html:'Once installed, click the Claude Code icon in your sidebar to open the chat panel' },
+      { id:'s3e', html:'Sign in with your Claude account when prompted' },
+    ],
+    callout: { type:'pink', icon:'👀', title:'What does this look like?', body:'Once set up, VS Code will have your project files on the left, your code in the center, and the Claude Code chat on the side or bottom. Type your request → Claude edits your files. All in one window.' },
+  },
+  {
+    num: 4, emoji: '🏗️', title: 'Create Your Project & Start Building',
+    intro: 'Time to create your first project folder and tell Claude what to build. This is where the magic starts.',
+    tasks: [
+      { id:'s4a', html:'On your computer, create a new folder somewhere easy to find (Desktop or Documents). Name it something like <strong>my-first-website</strong>' },
+      { id:'s4b', html:'In VS Code, click <strong>File &rarr; Open Folder</strong> and select that folder' },
+      { id:'s4c', html:'Open the Claude Code chat panel from the sidebar' },
+      { id:'s4d', html:'Type your first prompt — describe what you want to build in plain English!' },
+    ],
+    prompts: [
+      '"Build me a simple personal website with my name, a short bio, and links to my social media"',
+      '"Create a landing page for my small business that includes a contact form"',
+      '"Make a to-do list app where I can add and check off items"',
+    ],
+    callout: { type:'green', icon:'✅', title:'Remember', body:'Be specific, but don\'t worry about technical terms. Claude understands plain English — no jargon needed. Claude will ask clarifying questions, write the code, and create files right in your project folder.' },
+  },
+  {
+    num: 5, emoji: '🗄️', title: 'Connect to Supabase',
+    intro: 'Supabase gives your app a real database and backend — so you can store user data, form submissions, lists, and more. You don\'t need to know SQL; just describe what you want to store and Claude handles the rest.',
+    tasks: [
+      { id:'s_supa', html:'Sign up for free at <a href="https://supabase.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">supabase.com</a> — use your GitHub account for the easiest signup' },
+      { id:'s_supb', html:'Click <strong>New project</strong>, give it a name, and wait about a minute for it to spin up' },
+      { id:'s_supc', html:'In your project dashboard, go to <strong>Project Settings → API</strong> and copy your <strong>Project URL</strong> and <strong>anon/public key</strong>' },
+      { id:'s_supd', html:'In Claude Code, say: <em>"Connect my app to Supabase. My project URL is [X] and my anon key is [Y]"</em> — Claude installs the SDK and wires everything up' },
+      { id:'s_supe', html:'Ask Claude to set up your data: <em>"Create a table to store [your data] and update the app to save and load from it"</em>' },
+    ],
+    callout: { type:'yellow', icon:'🔐', title:'Keep your keys private', body:'Never paste your Supabase URL or anon key directly into your code files or a public GitHub repo. Ask Claude Code: "How do I store my Supabase credentials safely?" and it will set up a secure .env file.' },
+  },
+  {
+    num: 6, emoji: '👀', title: 'Preview Your Work',
+    intro: 'As Claude builds your project, you\'ll want to see how it actually looks in a browser. Here\'s how to get a live preview:',
+    tasks: [
+      { id:'s5a', html:'In the Claude Code chat, ask: <strong>"How do I preview this in my browser?"</strong>' },
+      { id:'s5b', html:'Claude will open a preview directly or give you one simple click to do it' },
+      { id:'s5c', html:'(Optional) Install the <strong>"Live Preview"</strong> extension in VS Code — adds a live preview button right inside VS Code itself' },
+      { id:'s5d', html:'Look at the preview and tell Claude what to change in plain English' },
+    ],
+    callout: { type:'yellow', icon:'💬', title:'Stay in the chat as you review', body:'"The header is too big" — "Move the button to the center" — "Make the background a soft gray." Claude updates the code immediately as you describe what you see.' },
+  },
+  {
+    num: 7, emoji: '🐙', title: 'Save to GitHub',
+    intro: 'Time to back up your project on GitHub. VS Code has GitHub built right in — no terminal, no command line, no stress.',
+    tasks: [
+      { id:'s6a', html:'Click the <strong>Source Control icon</strong> in the VS Code left sidebar (looks like a branching tree with two forks)' },
+      { id:'s6b', html:'You\'ll see your changed files listed — click the <strong>+ (Stage All Changes)</strong> button next to "Changes" to stage them' },
+      { id:'s6c', html:'Type a short message in the text box at the top, like <em>"First commit"</em>' },
+      { id:'s6d', html:'Click the <strong>✓ Commit</strong> button (or press <strong>Cmd+Enter</strong> on Mac / <strong>Ctrl+Enter</strong> on Windows)' },
+      { id:'s6e', html:'A <strong>"Publish Branch"</strong> button now appears at the top of the Source Control panel — click it. (Don\'t see it? Open the Command Palette with <strong>Cmd/Ctrl+Shift+P</strong> and search <em>"Publish to GitHub"</em>)' },
+      { id:'s6f', html:'Sign in to your GitHub account when prompted, then choose a name for your repo (like <em>"my-first-website"</em>) and choose <strong>Public</strong> or <strong>Private</strong>' },
+      { id:'s6g', html:'Click <strong>OK</strong> — VS Code pushes your project to GitHub and links them automatically' },
+    ],
+    callout: { type:'pink', icon:'💾', title:'New vocab: commit & push', body:'<strong>Commit</strong>: Saving a named snapshot of your changes (like a video game save point). <strong>Push</strong>: Sending that snapshot up to GitHub so it\'s backed up online. Or just tell Claude Code: "Commit and push my changes" and it handles everything.' },
+  },
+  {
+    num: 8, emoji: '🚀', title: 'Go Live with Vercel',
+    intro: 'This is the step where your site gets a real URL and goes live on the internet. Takes about 60 seconds.',
+    tasks: [
+      { id:'s7a', html:'Go to <a href="https://vercel.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">vercel.com</a> and log in with your GitHub account' },
+      { id:'s7b', html:'Click <strong>"Add New Project"</strong>' },
+      { id:'s7c', html:'Vercel shows your GitHub repos — select your project' },
+      { id:'s7d', html:'Click <strong>Deploy</strong> — Vercel handles everything automatically' },
+      { id:'s7e', html:'In about 60 seconds you\'ll get a URL like <strong>my-first-website.vercel.app</strong> — share it with anyone!' },
+    ],
+    callout: { type:'green', icon:'🌟', title:'The best part', body:'From now on, every time you make changes with Claude Code and push them to GitHub, Vercel automatically rebuilds and updates your live site. No extra steps. It just happens.' },
+  },
+];
+
+const TIPS = [
+  {
+    icon:'🎯', title:'Be Specific With Claude Code',
+    body:'The more detail you give, the better the result. Instead of "make a website", try describing every part:',
+    examples: ['"Create a one-page portfolio with a dark background, my name in large white text at the top, a 3-column grid of project cards, and a contact section at the bottom with my email"'],
+  },
+  {
+    icon:'🔁', title:'Iterate Out Loud',
+    body:"You don't have to get it perfect in one shot. Build a rough version first, then refine in plain English:",
+    examples: ['"Now change the font to something more modern"', '"Make the navigation bar stick to the top when I scroll"', '"The button color doesn\'t look right — try a softer shade of blue"'],
+  },
+  {
+    icon:'🧠', title:'Ask Claude to Explain Things',
+    body:"You're not just building — you're learning. Whenever you're curious about what the code does:",
+    examples: ['"What does this block of code do?"', '"Why did you use this approach instead of a different one?"', '"Explain this like I\'ve never coded before"'],
+  },
+  {
+    icon:'😤', title:"Don't Panic When Things Break",
+    body:"Errors are completely normal, even for experienced developers. When something doesn't work, copy the error message and paste it to Claude:",
+    examples: ['"I got this error — what went wrong and how do I fix it?"'],
+  },
+  {
+    icon:'💾', title:'Save to GitHub Often',
+    body:'Every time you reach a point where things are working, commit and push. If you break something while experimenting, you can always roll back to the version that worked — GitHub keeps every saved version forever.',
+    examples: [],
+  },
+];
+
+/* ── STATE ── */
+let currentStep = 0;
+const TOTAL_TASKS = STEPS.reduce((n, s) => n + s.tasks.length, 0);
+let confettiFired = false;
+
+function load(id) { return localStorage.getItem(id) === '1'; }
+function save(id, v) { localStorage.setItem(id, v ? '1' : '0'); }
+
+function countDone() {
+  return STEPS.reduce((n, s) => n + s.tasks.filter(t => load(t.id)).length, 0);
+}
+function stepDone(i) { return STEPS[i].tasks.every(t => load(t.id)); }
+
+function renderDots() {
+  const track = document.getElementById('dot-track');
+  track.innerHTML = '';
+  STEPS.forEach((s, i) => {
+    if (i > 0) {
+      const line = document.createElement('div');
+      line.className = 's-line' + (stepDone(i - 1) ? ' done' : '');
+      track.appendChild(line);
+    }
+    const dot = document.createElement('div');
+    dot.className = 's-dot' + (i === currentStep ? ' active' : '') + (stepDone(i) ? ' done' : '');
+    dot.textContent = stepDone(i) ? '✓' : s.num;
+    dot.title = `Step ${s.num}: ${s.title}`;
+    dot.onclick = () => goTo(i);
+    track.appendChild(dot);
+  });
+}
+
+function renderProgress() {
+  const done = countDone();
+  const pct = Math.round(done / TOTAL_TASKS * 100);
+  document.getElementById('overall-fill').style.width = pct + '%';
+  document.getElementById('prog-label').textContent = `${done} of ${TOTAL_TASKS} tasks complete`;
+  if (done === TOTAL_TASKS) {
+    document.getElementById('done-banner').classList.add('show');
+    if (!confettiFired) { confettiFired = true; launchConfetti(); }
+  }
+}
+
+function renderStep() {
+  const s = STEPS[currentStep];
+  const tasksHTML = s.tasks.map(t => {
+    const checked = load(t.id);
+    return `<li>
+      <div class="c-box${checked ? ' checked' : ''}" id="box-${t.id}" onclick="toggle('${t.id}')">${checked ? '✓' : ''}</div>
+      <span class="c-label${checked ? ' checked' : ''}" id="lbl-${t.id}" onclick="toggle('${t.id}')">${t.html}</span>
+    </li>`;
+  }).join('');
+
+  const promptsHTML = s.prompts ? `
+    <div class="prompt-block">
+      <div class="pb-label">💬 Example prompts to try</div>
+      ${s.prompts.map(p => `<div class="prompt-item">${p}</div>`).join('')}
+    </div>` : '';
+
+  const c = s.callout;
+  const calloutHTML = c ? `
+    <div class="callout ${c.type}">
+      <strong>${c.icon} ${c.title}</strong>
+      <p>${c.body}</p>
+    </div>` : '';
+
+  document.getElementById('step-card').innerHTML = `
+    <div class="step-card-head">
+      <div class="step-badge">Step ${s.num} of ${STEPS.length}</div>
+      <h2>${s.emoji} ${s.title}</h2>
+    </div>
+    <div class="step-card-body">
+      <p class="step-intro">${s.intro}</p>
+      <ul class="checklist">${tasksHTML}</ul>
+      ${promptsHTML}
+      ${calloutHTML}
+    </div>`;
+
+  document.getElementById('prev-btn').disabled = currentStep === 0;
+  document.getElementById('step-count').textContent = `Step ${currentStep + 1} of ${STEPS.length}`;
+
+  const nextBtn = document.getElementById('next-btn');
+  if (currentStep === STEPS.length - 1) {
+    nextBtn.textContent = 'All done! 🎉';
+    nextBtn.className = 'nav-btn next finish';
+    nextBtn.onclick = () => document.getElementById('done-banner').scrollIntoView({ behavior: 'smooth' });
+  } else {
+    nextBtn.textContent = 'Next →';
+    nextBtn.className = 'nav-btn next';
+    nextBtn.onclick = () => changeStep(1);
+  }
+
+  renderDots();
+  renderProgress();
+}
+
+function toggle(id) {
+  const checked = !load(id);
+  save(id, checked);
+  const box = document.getElementById('box-' + id);
+  const lbl = document.getElementById('lbl-' + id);
+  box.textContent = checked ? '✓' : '';
+  box.classList.toggle('checked', checked);
+  lbl.classList.toggle('checked', checked);
+  renderDots();
+  renderProgress();
+}
+
+function changeStep(dir) {
+  const next = currentStep + dir;
+  if (next < 0 || next >= STEPS.length) return;
+  animateOut(dir > 0 ? 20 : -20, () => {
+    currentStep = next;
+    renderStep();
+    animateIn();
+    document.getElementById('step-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+function goTo(i) {
+  if (i === currentStep) return;
+  const dir = i > currentStep ? 20 : -20;
+  animateOut(dir, () => {
+    currentStep = i;
+    renderStep();
+    animateIn();
+  });
+}
+
+function animateOut(dy, cb) {
+  const card = document.getElementById('step-card');
+  card.style.transition = 'opacity 0.18s, transform 0.18s';
+  card.style.opacity = '0';
+  card.style.transform = `translateY(${dy}px)`;
+  setTimeout(cb, 190);
+}
+
+function animateIn() {
+  const card = document.getElementById('step-card');
+  card.style.transition = 'none';
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(12px)';
+  requestAnimationFrame(() => {
+    card.style.transition = 'opacity 0.28s, transform 0.28s';
+    card.style.opacity = '1';
+    card.style.transform = 'translateY(0)';
+  });
+}
+
+function renderTips() {
+  const list = document.getElementById('tip-list');
+  TIPS.forEach((tip) => {
+    const item = document.createElement('div');
+    item.className = 'tip-item';
+    item.innerHTML = `
+      <button class="tip-toggle" onclick="toggleTip(this)">
+        <span class="tip-icon">${tip.icon}</span>
+        <span class="tip-title">${tip.title}</span>
+        <span class="tip-chev">▾</span>
+      </button>
+      <div class="tip-body">
+        <div class="tip-body-inner">
+          <p>${tip.body}</p>
+          ${tip.examples.length ? `<ul>${tip.examples.map(e => `<li>${e}</li>`).join('')}</ul>` : ''}
+        </div>
+      </div>`;
+    list.appendChild(item);
+  });
+}
+
+function toggleTip(btn) {
+  const item = btn.closest('.tip-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.tip-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const colors = ['#18DCDC','#006464','#F5501C','#D8FF00','#F25BB6','#ffffff','#C0FCDC'];
+  const pieces = Array.from({length: 130}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height - canvas.height,
+    r: Math.random() * 7 + 4,
+    d: Math.random() * 80 + 20,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    tiltAngle: Math.random() * Math.PI * 2,
+    tiltSpeed: Math.random() * 0.07 + 0.03,
+  }));
+  let angle = 0, frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    angle += 0.01; frame++;
+    pieces.forEach(p => {
+      p.tiltAngle += p.tiltSpeed;
+      p.y += (Math.cos(angle + p.d) + 1.6) * 1.5;
+      p.x += Math.sin(angle) * 0.8;
+      ctx.beginPath();
+      ctx.lineWidth = p.r;
+      ctx.strokeStyle = p.color;
+      ctx.moveTo(p.x + Math.sin(p.tiltAngle) * 10, p.y);
+      ctx.lineTo(p.x + Math.sin(p.tiltAngle) * 10 - 8, p.y + p.r);
+      ctx.stroke();
+    });
+    if (frame < 280) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+/* ── INTERSECTION OBSERVER ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+/* ── SMOOTH SCROLL FOR HERO CTA ── */
+document.querySelector('.hero-cta').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('steps').scrollIntoView({ behavior: 'smooth' });
+});
+
+/* ── INIT ── */
+renderStep();
+renderTips();
+</script>
+</body>
+</html>
