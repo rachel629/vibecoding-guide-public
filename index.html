@@ -433,6 +433,18 @@
     /* ── CHECKLIST ── */
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
     .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .checklist li.task-heading {
+      display: block;
+      gap: 0;
+      margin-top: 1rem;
+      padding-left: 0;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .checklist li.task-heading:first-child { margin-top: 0; }
+    .checklist li.task-heading .c-box { display: none; }
+    .checklist li.task-heading .c-label { display: block; margin-left: 0; }
     .c-box {
       width: 24px; height: 24px; min-width: 24px;
       border: 2.5px solid var(--gray-300);
@@ -940,8 +952,10 @@ const STEPS = [
     num: 6, emoji: '🐙', title: 'Save to Version Control',
     intro: 'Saving your project to a version control platform backs it up online and keeps a complete history of every change. If you ever break something, you can always roll back. Most code editors have this built right into the sidebar.',
     tasks: [
+      { id:'s6h', html:'<strong>Ask your AI assistant to do it</strong>', heading: true },
       { id:'s6a', html:'Ask your AI assistant: <strong>"Commit and push my changes to my version control platform"</strong> — this tells it to save your current snapshot and send it to your online repo' },
-      { id:'s6b', html:'If you prefer to do this manually, stage your changed files and write a commit message' },
+      { id:'s6h2', html:'<strong>Or do it manually</strong>', heading: true },
+      { id:'s6b', html:'Stage your changed files and write a commit message' },
       { id:'s6c', html:'Write a short message describing what you built, like <em>"First commit"</em> or <em>"Add contact form"</em>' },
       { id:'s6d', html:'Click <strong>Commit</strong> and then <strong>Push</strong> to send it up to your version control platform (e.g., GitHub)' },
       { id:'s6e', html:'Choose a repo name and whether it should be <strong>Public</strong> or <strong>Private</strong>' },
@@ -1035,6 +1049,9 @@ function renderProgress() {
 function renderStep() {
   const s = STEPS[currentStep];
   const tasksHTML = s.tasks.map(t => {
+    if (t.heading) {
+      return `<li class="task-heading"><span class="c-label">${t.html}</span></li>`;
+    }
     const checked = load(t.id);
     return `<li>
       <div class="c-box${checked ? ' checked' : ''}" id="box-${t.id}" onclick="toggle('${t.id}')">${checked ? '✓' : ''}</div>
