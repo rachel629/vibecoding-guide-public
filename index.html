@@ -227,6 +227,7 @@
     .vibe-explainer h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--teal-dark); }
     .vibe-explainer p { font-size: 0.94rem; color: var(--gray-600); line-height: 1.7; }
     .vibe-explainer p + p { margin-top: 0.5rem; font-style: italic; }
+    .vibe-explainer p.normal { font-style: normal; }
 
     /* ── WHO IT'S FOR ── */
     .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
@@ -342,6 +343,35 @@
     .steps-outer { max-width: 760px; margin: 0 auto; padding: 1rem 2rem 5rem; }
     .steps-header { text-align: center; margin-bottom: 2.5rem; }
 
+    .step-labels {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      margin: 0 0 0.9rem;
+      padding: 0 0.2rem;
+    }
+    .step-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gray-200);
+      border-radius: 999px;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      background: white;
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .step-label:hover { background: var(--gray-100); }
+    .step-label.active {
+      border-color: var(--teal);
+      background: rgba(24,220,220,0.14);
+      color: var(--navy);
+    }
     .dot-track {
       display: flex;
       align-items: center;
@@ -665,7 +695,7 @@
       <span class="hero-tag">✨ Zero coding experience needed</span>
       <h1>Vibe Coding<br>for <span class="accent">Beginners</span></h1>
       <p class="sub">Build real websites and apps by describing what you want in plain English. No programming background required.</p>
-      <p class="tools-line">AI Coding Assistant &nbsp;•&nbsp; Code Editor &nbsp;•&nbsp; Version Control &nbsp;•&nbsp; Deployment Platform &nbsp;•&nbsp; Database</p>
+      <p class="tools-line">AI Coding Assistant &nbsp;•&nbsp; Code Editor &nbsp;•&nbsp; Version Control &nbsp;•&nbsp; Deployment &nbsp;•&nbsp; Database</p>
       <a href="#steps" class="hero-cta">Start Building &rarr;</a>
     </div>
     <div class="hero-image">
@@ -685,8 +715,8 @@
     <div>
       <h3>What is vibe coding?</h3>
       <p>Vibe coding is a new way of building software where you describe what you want in plain English, and an AI assistant writes the actual code for you. You don't need to memorize programming languages, syntax rules, or technical jargon — just explain what you're trying to build.</p>
-      <p style="margin-top:0.6rem;">Think of it like this: instead of learning to drive a race car, you tell a world-class driver exactly where you want to go. The AI handles the technical driving — you handle the vision and direction.</p>
-      <p style="margin-top:0.6rem;">Best of all, this approach works with many different AI models and tool combinations. This guide is tool-agnostic — the concepts apply regardless of which coding assistant or editor you choose.</p>
+      <p class="normal">Think of it like this: instead of learning to drive a race car, you tell a world-class driver exactly where you want to go. The AI handles the technical driving — you handle the vision and direction.</p>
+      <p class="normal">Best of all, this approach works with many different AI models and tool combinations. This guide is tool-agnostic — the concepts apply regardless of which coding assistant or editor you choose.</p>
     </div>
   </div>
 </div>
@@ -696,10 +726,10 @@
   <div class="section-label">Who this is for</div>
   <div class="section-title">This guide is for you if...</div>
   <div class="who-grid">
-    <div class="who-chip"><span class="chip-emoji">🌱</span><p>You've never written a line of code before — and that's totally fine</p></div>
-    <div class="who-chip"><span class="chip-emoji">💡</span><p>You have an idea for a website, tool, or project and want to build it</p></div>
-    <div class="who-chip"><span class="chip-emoji">🎲</span><p>You're willing to experiment, make mistakes, and learn as you go</p></div>
-    <div class="who-chip"><span class="chip-emoji">🔍</span><p>You want to understand what each tool does before you dive in</p></div>
+    <div class="who-chip"><span class="chip-emoji">🌱</span><p>You've never written code before — and that's okay</p></div>
+    <div class="who-chip"><span class="chip-emoji">💡</span><p>You have an idea for a website, app, or project</p></div>
+    <div class="who-chip"><span class="chip-emoji">🎲</span><p>You're ready to experiment, make mistakes, and learn</p></div>
+    <div class="who-chip"><span class="chip-emoji">🔍</span><p>You want to understand each tool before you dive in</p></div>
   </div>
 </div>
 
@@ -735,7 +765,7 @@
     </div>
     <div class="tool-card vercel">
       <span class="tool-emoji">▲</span>
-      <h3>Deployment Platform</h3>
+      <h3>Deployment</h3>
       <div class="tool-tagline">Your publisher</div>
       <div class="tool-desc">Takes your code and puts it live on the internet — automatically. Every time you push a change to version control, your live site updates with no extra steps needed.</div>
       <div class="think-label">Popular examples</div>
@@ -789,6 +819,7 @@
     <p style="color:var(--gray-600);font-size:0.97rem;line-height:1.6;">Follow the steps in order. Check off each task as you go — you only need to set most of this up once!</p>
   </div>
 
+  <div class="step-labels" id="step-labels"></div>
   <div class="dot-track" id="dot-track"></div>
 
   <div class="overall-bar"><div class="overall-fill" id="overall-fill"></div></div>
@@ -844,7 +875,7 @@
         <td>Back up your code with complete version history</td>
       </tr>
       <tr>
-        <td><strong>▲ Deployment Platform</strong></td>
+        <td><strong>▲ Deployment</strong></td>
         <td>Vercel, Netlify, Railway, Render, GitHub Pages</td>
         <td>Publish your project live on the internet</td>
       </tr>
@@ -875,8 +906,8 @@ const STEPS = [
     num: 1, emoji: '🔐', title: 'Create Your Accounts',
     intro: 'The tools you use for vibe coding are mostly free and cloud-based. Before anything else, sign up for the platforms you plan to use. Takes about 10–15 minutes total — and you only do this once.',
     tasks: [
-      { id:'s1a', html:'Choose an <strong>AI coding assistant</strong> and create an account — popular options include <a href="https://claude.ai" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Claude</a>, <a href="https://github.com/features/copilot" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">GitHub Copilot</a>, <a href="https://chatgpt.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">ChatGPT</a>, and <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Gemini</a> (this is not an exhaustive list — try a few!)' },
-      { id:'s1b', html:'Sign up for a <strong>version control platform</strong> — <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">GitHub</a> is the most widely used, but GitLab and Bitbucket are also great options' },
+      { id:'s1a', html:'Choose an <strong>AI coding assistant</strong> and create an account — popular options include <a href="https://claude.ai" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Claude Code</a>, <a href="https://github.com/features/copilot" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">GitHub Copilot</a>, <a href="https://chatgpt.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">ChatGPT</a>, and <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Gemini Code Assist</a> (this is not an exhaustive list — try a few!)' },
+      { id:'s1b', html:'Sign up for a <strong>version control and collaboration platform</strong> — <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">GitHub</a> is the most widely used, but GitLab and Bitbucket are also great options' },
       { id:'s1c', html:'Sign up for a <strong>deployment platform</strong> — <a href="https://vercel.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Vercel</a> and <a href="https://netlify.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Netlify</a> are popular beginner-friendly choices; both offer free tiers' },
     ],
     callout: { type:'yellow', icon:'💡', title:'Pro tip', body:'Using the same email address across your accounts keeps things simple. Many deployment platforms let you sign in directly with your GitHub account, which saves time.' },
@@ -885,7 +916,7 @@ const STEPS = [
     num: 2, emoji: '💻', title: 'Set Up Your Coding Environment',
     intro: 'Your coding environment is where you\'ll spend most of your time — it\'s the app (or browser tab) where you write, edit, and manage your project. You\'ll combine a code editor with an AI coding assistant. There are many options; here are a few popular setups to choose from.',
     tasks: [
-      { id:'s2a', html:'<strong>Option A — Separate tools:</strong> Download a code editor like <a href="https://code.visualstudio.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">VS Code</a> (free, by Microsoft), then add your AI assistant as an extension from the extensions/plugins panel' },
+      { id:'s2a', html:'<strong>Option A — Separate tools:</strong> Download a code editor like <a href="https://code.visualstudio.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">VS Code</a>, then add your AI assistant as an extension from the extensions/plugins panel' },
       { id:'s2b', html:'<strong>Option B — AI-first editor:</strong> Use an editor with AI built right in, like <a href="https://cursor.sh" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Cursor</a>, <a href="https://windsurf.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Windsurf</a>, or <a href="https://conductor.build" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Conductor</a> — no separate plugin needed' },
       { id:'s2c', html:'<strong>Option C — Browser-based:</strong> Use <a href="https://replit.com" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:600;">Replit</a> if you\'d rather not install anything — works entirely in your browser with AI included' },
       { id:'s2d', html:'Open your chosen editor and sign in to your AI assistant when prompted' },
@@ -936,14 +967,14 @@ const STEPS = [
     num: 6, emoji: '🐙', title: 'Save to Version Control',
     intro: 'Saving your project to a version control platform backs it up online and keeps a complete history of every change. If you ever break something, you can always roll back. Most code editors have this built right into the sidebar.',
     tasks: [
-      { id:'s6a', html:'Look for a <strong>Source Control</strong> icon in your editor\'s sidebar — it often looks like a branching tree. Or ask your AI assistant: <em>"Commit and push my changes"</em> and it will handle it for you' },
+      { id:'s6a', html:'Ask your AI assistant: <strong>"Commit and push my changes to my version control platform"</strong> — this tells it to save your current snapshot and send it to your online repo' },
       { id:'s6b', html:'Stage your changes — click the <strong>+</strong> button next to your changed files to mark them for saving' },
       { id:'s6c', html:'Write a short message describing what you built, like <em>"First commit"</em> or <em>"Add contact form"</em>' },
       { id:'s6d', html:'Click <strong>Commit</strong> to save the snapshot locally' },
       { id:'s6e', html:'Click <strong>Publish Branch</strong> or <strong>Push</strong> to send it up to your version control platform (e.g., GitHub)' },
       { id:'s6f', html:'Choose a repo name and whether it should be <strong>Public</strong> or <strong>Private</strong>' },
     ],
-    callout: { type:'pink', icon:'💾', title:'New vocab: commit & push', body:'<strong>Commit</strong>: Saving a named snapshot of your changes — like a video game save point. <strong>Push</strong>: Sending that snapshot to the cloud so it\'s backed up online. Most AI assistants can do both steps for you if you ask.' },
+    callout: { type:'pink', icon:'💾', title:'New vocab: commit & push', body:'<strong>Commit</strong>: Saving a named snapshot of your changes — like a video game save point. <strong>Push</strong>: Sending that snapshot to the cloud so it\'s backed up online. You can ask your AI assistant to do this for you, but you can also complete the same steps yourself in the editor if you prefer.' },
   },
   {
     num: 7, emoji: '🚀', title: 'Go Live',
@@ -999,6 +1030,20 @@ function countDone() {
   return STEPS.reduce((n, s) => n + s.tasks.filter(t => load(t.id)).length, 0);
 }
 function stepDone(i) { return STEPS[i].tasks.every(t => load(t.id)); }
+
+function renderStepLabels() {
+  const container = document.getElementById('step-labels');
+  container.innerHTML = '';
+  STEPS.forEach((s, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'step-label' + (i === currentStep ? ' active' : '');
+    btn.textContent = `Step ${s.num}: ${s.title}`;
+    btn.title = s.title;
+    btn.onclick = () => goTo(i);
+    container.appendChild(btn);
+  });
+}
 
 function renderDots() {
   const track = document.getElementById('dot-track');
@@ -1078,6 +1123,7 @@ function renderStep() {
     nextBtn.onclick = () => changeStep(1);
   }
 
+  renderStepLabels();
   renderDots();
   renderProgress();
 }
